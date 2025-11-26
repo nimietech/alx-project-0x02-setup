@@ -1,4 +1,4 @@
-# Next.js Fundamentals Project.
+# Next.js Project Setup and Basics.
 
 A foundational project built to demonstrate a strong understanding of Next.js, TypeScript, and Tailwind CSS, focusing on clean architecture, reusable components, and modern frontend best practices. This project showcases the essential concepts required to build scalable, production-ready applications using the Next.js framework.
 
