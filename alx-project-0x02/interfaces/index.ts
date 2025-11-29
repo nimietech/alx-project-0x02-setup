@@ -22,9 +22,22 @@ export interface PostProps {
 
 // interfaces/index.ts
 
+export interface GeoProps {
+  lat: string;
+  lng: string;
+}
+
+export interface AddressProps {
+  street: string;
+  suite: string;
+  city: string;
+  zipcode: string;
+  geo: GeoProps;
+}
+
 export interface UserProps {
-  id: number;
   name: string;
+  address: AddressProps;
   username: string;
   email: string;
   phone: string;
