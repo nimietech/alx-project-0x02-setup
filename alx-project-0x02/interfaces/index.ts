@@ -1,5 +1,5 @@
 
-export interface CardData{
+export interface CardProps{
     id: string,
     name: string,
     title: string,

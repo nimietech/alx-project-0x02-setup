@@ -1,8 +1,8 @@
 import React from 'react'
-import { CardData } from '@/interfaces'
+import { CardProps } from '@/interfaces'
 
 
-const Card: React.FC<{ data: CardData }> = ({data}) =>  {
+const Card: React.FC<{ data: CardProps }> = ({data}) =>  {
 
   return (
     <div>

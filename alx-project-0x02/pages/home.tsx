@@ -1,14 +1,14 @@
 import React from 'react'
 import { useState } from "react";
 import Card from '@/components/common/Card'
-import { CardData } from '@/interfaces'
+import { CardProps } from '@/interfaces'
 import PostModal from "@/components/common/PostModal";
 import Header from '@/components/layout/Header';
 
 
 const home: React.FC = () =>  {
 
-  const cards: CardData[] = [
+  const cards: CardProps[] = [
     {
       id: "1",
       name: "John Doe",
@@ -30,10 +30,10 @@ const home: React.FC = () =>  {
   ];
 
   const [open, setOpen] = useState(false);
-  const [posts, setPosts] = useState<CardData[]>([]);
+  const [posts, setPosts] = useState<CardProps[]>([]);
 
 
-  const handleAddPost = (data: CardData) => {
+  const handleAddPost = (data: CardProps) => {
     setPosts((prev) => [data, ...prev]);
   };
 
