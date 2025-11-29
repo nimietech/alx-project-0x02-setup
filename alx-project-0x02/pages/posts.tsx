@@ -2,29 +2,24 @@ import Header from '@/components/layout/Header'
 import React, { useEffect, useState } from "react";
 import PostCard from "@/components/common/PostCard";
 import { PostProps} from "@/interfaces";
+import { GetStaticProps } from "next";
 
-const posts = () => {
-  const [posts, setPosts] = useState<PostProps[]>([]);
-  const [loading, setLoading] = useState(true);
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const posts: PostProps[] = await res.json();
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-        const data: PostProps[] = await res.json();
-        setPosts(data.slice(0, 10)); // fetch first 10 posts
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  return {
+    props: {
+      posts: posts.slice(0, 10), // return first 10 posts
+    },
+  };
+};
 
-    fetchPosts();
-  }, []);
+interface PostsPageProps {
+  posts: PostProps[];
+}
 
-  if (loading) return <p className="p-6">Loading posts...</p>;
-
+  const Posts: React.FC<PostsPageProps> = ({ posts }) => {
   return (
     <section>
       <Header/>
@@ -46,4 +41,4 @@ const posts = () => {
   )
 }
 
-export default posts
+export default Posts;
